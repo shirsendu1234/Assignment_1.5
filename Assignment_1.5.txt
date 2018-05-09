@@ -1,0 +1,14 @@
+1)
+set.seed(42);
+m=10; n=10;
+mat<-replicate(m, rnorm(n)) # create matrix of normal random numbers
+df=data.frame(mat)    # transform into data frame
+
+#we can use system.stem() to check how long this takes
+system.time(for (i in 1:m) {
+  for (j in 1:n) {
+    df[i,j]<-df[i,j] + 10*sin(0.75*pi)
+  }
+}
+)
+df
